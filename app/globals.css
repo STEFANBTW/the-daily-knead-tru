@@ -1,0 +1,162 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-cormorant);
+  --font-mono: var(--font-mono);
+
+  --color-primary: #252422;
+  --color-secondary: #ebe6df;
+  --color-obsession: #9f4f3b;
+
+  --shadow-obsession: 4px 4px 0px 0px var(--color-obsession);
+  --shadow-dark: 4px 4px 0px 0px var(--color-primary);
+  --shadow-obsession-lg: 8px 8px 0px 0px var(--color-obsession);
+}
+
+:root {
+  /* Core Base Tokens */
+  --color-base-dark: #252422;
+  --color-base-light: #ebe6df;
+  --color-base-accent: #9f4f3b;
+
+  /* Semantic UI Tokens */
+  --bg-surface: var(--color-base-light);
+  --bg-inverted: var(--color-base-dark);
+  --bg-accent: var(--color-base-accent);
+  --text-main: var(--color-base-dark);
+  --text-inverted: var(--color-base-light);
+  --text-accent: var(--color-base-accent);
+  --border-main: var(--color-base-dark);
+  --border-accent: var(--color-base-accent);
+
+  --color-bg-surface: var(--color-base-light);
+  --color-text-main: var(--color-base-dark);
+  --color-text-inverted: var(--color-base-light);
+  --color-border-main: var(--color-base-dark);
+
+  /* Shadow Tokens */
+  --shadow-card: var(--shadow-obsession);
+  --shadow-card-hover: var(--shadow-dark);
+
+  /* Spacing tokens */
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-6: 1.5rem;
+
+  /* Typography tokens */
+  --font-size-body: clamp(0.95rem, 0.4vw + 0.9rem, 1.05rem);
+
+  /* Layout tokens */
+  --menu-nav-height: 48px;
+  --menu-search-top: var(--menu-nav-height);
+  --menu-top-gap: 1rem;
+}
+
+body {
+  background-color: var(--color-bg-surface);
+  color: var(--color-text-main);
+}
+
+/* Button Component Tokens & Styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  border: 1px solid var(--color-border-main);
+  padding: 1rem 2rem;
+  font-family: var(--font-sans);
+  cursor: pointer;
+}
+
+.btn-sm {
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+}
+
+/* Primary Button: Used for Checkout, Confirm Reservation */
+.btn-primary {
+  background-color: var(--color-base-dark);
+  color: var(--color-text-inverted);
+}
+.btn-primary:hover {
+  background-color: var(--color-base-accent);
+  color: var(--color-text-inverted);
+}
+.btn-primary:disabled {
+  background-color: transparent;
+  color: var(--color-text-main);
+  opacity: 0.3;
+}
+
+/* Secondary Button: Highly exciting actions (Explore Menu, Discover Menu) */
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-text-main);
+}
+.btn-secondary:hover {
+  background-color: var(--color-base-accent);
+  color: var(--color-text-inverted);
+}
+
+/* Tertiary Button: Lower priority actions (Cancel, Details) */
+.btn-tertiary {
+  background-color: transparent;
+  color: var(--color-text-main);
+}
+.btn-tertiary:hover {
+  background-color: var(--color-base-dark);
+  color: var(--color-text-inverted);
+}
+
+/* Base Card Style */
+.card-layer {
+  background-color: #f2ece4;
+  border: 1px solid var(--color-border-main);
+  box-shadow: var(--shadow-card);
+}
+
+.organic-noise {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+body {
+  background-color: #ebe6df;
+  color: #252422;
+}
+
+/* Ensure no text selection ruins the experience */
+.no-select {
+  user-select: none;
+}
+
+/* Hide scrollbar for immersive feel */
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+@keyframes slide-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-slide-left {
+  animation: slide-left 35s linear infinite;
+}
